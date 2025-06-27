@@ -29,11 +29,11 @@ jobs:
           npm run test -- --watch=false --code-coverage || echo "Tests failed but continuing..."
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.8
+        uses: SonarSource/sonarqube-scan-action@v2.0.0
         with:
-          organization: ${{ secrets.SONAR_ORGANIZATION }}
-          projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-          token: ${{ secrets.SONAR_TOKEN }}
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Build Docker image
         run: docker build -t nourbayoudh/MatchAngular:0.2 .
