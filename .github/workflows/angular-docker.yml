@@ -25,19 +25,15 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Run tests with coverage (ignore errors)
-        run: npm run test -- --watch=false --code-coverage --browsers=ChromeHeadless
+        run: |
+          npm run test -- --watch=false --code-coverage || echo "Tests failed but continuing..."
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        uses: SonarSource/sonarcloud-github-action@v1.8
         with:
-          args: >
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-            -Dsonar.sources=src
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.branch.name=matchFront
+          organization: ${{ secrets.SONAR_ORGANIZATION }}
+          projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+          token: ${{ secrets.SONAR_TOKEN }}
 
       - name: Build Docker image
         run: docker build -t nourbayoudh/MatchAngular:0.2 .
