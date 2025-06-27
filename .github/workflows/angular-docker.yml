@@ -24,7 +24,7 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production
 
-      - name: Run tests with coverage
+      - name: Run tests with coverage (ignore errors)
         run: npm run test -- --watch=false --code-coverage
 
       - name: SonarCloud Scan
