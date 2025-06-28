@@ -55,11 +55,11 @@ jobs:
       - name: Build Docker image with tags
         run: |
           docker build \
-            -t 454a-165-51-179-72.ngrok-free.app/DevopsFront:${IMAGE_TAG} \
-            -t 454a-165-51-179-72.ngrok-free.app/DevopsFront:latest \
+            -t 454a-165-51-179-72.ngrok-free.app/devopsfront:${IMAGE_TAG} \
+            -t 454a-165-51-179-72.ngrok-free.app/devopsfront:latest \
             .
 
       - name: Push Docker images
         run: |
-          docker push 454a-165-51-179-72.ngrok-free.app/DevopsFront:${IMAGE_TAG}
-          docker push 454a-165-51-179-72.ngrok-free.app/DevopsFront:latest
+          docker push 454a-165-51-179-72.ngrok-free.app/devopsfront:${IMAGE_TAG}
+          docker push 454a-165-51-179-72.ngrok-free.app/devopsfront:latest
