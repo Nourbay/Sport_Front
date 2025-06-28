@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - matchFront
+      - main
 
 jobs:
 
