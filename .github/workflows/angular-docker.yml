@@ -36,30 +36,30 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: "https://sonarcloud.io"
 
-          docker-deploy:
-  needs: sonar
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+  docker-deploy:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-    - name: Define image tag
-      run: echo "IMAGE_TAG=${GITHUB_SHA}" >> $GITHUB_ENV
+      - name: Define image tag
+        run: echo IMAGE_TAG=${GITHUB_SHA} >> $GITHUB_ENV
 
-    - name: Log in to Nexus Docker Registry
-      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login https://454a-165-51-179-72.ngrok-free.app -u ${{ secrets.NEXUS_USERNAME }} --password-stdin
+      - name: Log in to Nexus Docker Registry
+        run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login https://454a-165-51-179-72.ngrok-free.app -u ${{ secrets.NEXUS_USERNAME }} --password-stdin
 
-    - name: Build Docker image with tags
-      run: |
-        docker build \
-          -t 454a-165-51-179-72.ngrok-free.app/DevopsFront:${IMAGE_TAG} \
-          -t 454a-165-51-179-72.ngrok-free.app/DevopsFront:latest \
-          .
+      - name: Build Docker image with tags
+        run: |
+          docker build \
+            -t 454a-165-51-179-72.ngrok-free.app/DevopsFront:${IMAGE_TAG} \
+            -t 454a-165-51-179-72.ngrok-free.app/DevopsFront:latest \
+            .
 
-    - name: Push Docker images
-      run: |
-        docker push 454a-165-51-179-72.ngrok-free.app/DevopsFront:${IMAGE_TAG}
-        docker push 454a-165-51-179-72.ngrok-free.app/DevopsFront:latest
+      - name: Push Docker images
+        run: |
+          docker push 454a-165-51-179-72.ngrok-free.app/DevopsFront:${IMAGE_TAG}
+          docker push 454a-165-51-179-72.ngrok-free.app/DevopsFront:latest
