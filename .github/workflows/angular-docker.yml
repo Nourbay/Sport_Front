@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Angular project (production)
-        run: npm run build -- --configuration production
+        run: npx ng build --configuration production
 
   run_tests:
     needs: build_project
