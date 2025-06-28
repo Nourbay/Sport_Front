@@ -9,14 +9,16 @@ jobs:
 
   install_dependencies:
     runs-on: ubuntu-latest
-    outputs:
-      cache-hit: ${{ steps.cache.outputs.cache-hit }}
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
       - name: Cache npm modules
-        id: cache
         uses: actions/cache@v3
         with:
           path: ~/.npm
@@ -27,6 +29,7 @@ jobs:
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
 
+
   build_project:
     needs: install_dependencies
     runs-on: ubuntu-latest
@@ -34,8 +37,17 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
       - name: Build Angular project (production)
-        run: npx ng build --configuration production
+        run: npx ng build --configuration=production
+
 
   run_tests:
     needs: build_project
@@ -44,8 +56,17 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
       - name: Run unit tests with coverage (ignore failures)
         run: npm run test -- --watch=false --code-coverage || echo "Tests failed but continuing..."
+
 
   sonarcloud_scan:
     needs: run_tests
@@ -54,6 +75,14 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
       - name: SonarCloud analysis
         uses: SonarSource/sonarqube-scan-action@v2.0.0
         with:
@@ -61,6 +90,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
+
 
   docker_build_and_push:
     needs: sonarcloud_scan
