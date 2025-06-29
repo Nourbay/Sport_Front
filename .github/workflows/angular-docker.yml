@@ -2,9 +2,9 @@ name: Angular CI with SonarCloud and Docker Deploy
 
 on:
   push:
-    branches:
-      - matchFront
-      - main
+    branches: [ "main" ]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
 
