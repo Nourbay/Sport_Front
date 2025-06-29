@@ -4,11 +4,8 @@ import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
-<<<<<<< HEAD
-=======
 import { AuthService } from 'src/app/modules/dashboard/services/auth.service';
 import { TokenStorageService } from 'src/app/modules/dashboard/services/token-storage.service';
->>>>>>> matchFront
 
 @Component({
   selector: 'app-sign-in',
@@ -21,22 +18,18 @@ export class SignInComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   passwordTextType!: boolean;
-<<<<<<< HEAD
 
-  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
-=======
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private readonly _formBuilder: FormBuilder,
+  constructor(
+    private readonly _formBuilder: FormBuilder,
     private readonly _router: Router,
     private authService: AuthService,
     private tokenStorage: TokenStorageService
-
-  ) { }
->>>>>>> matchFront
+  ) {}
 
   onClick() {
     console.log('Button clicked');
@@ -58,17 +51,6 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
-<<<<<<< HEAD
-    this.submitted = true;
-    const { email, password } = this.form.value;
-
-    // stop here if form is invalid
-    if (this.form.invalid) {
-      return;
-    }
-
-    this._router.navigate(['/']);
-=======
     // stop here if form is invalid
     if (this.form.invalid) {
       console.log("form invalid");
@@ -95,9 +77,9 @@ export class SignInComponent implements OnInit {
               console.log("User from API:", user);
 
               /*if (this.roles.includes('ROLE_CLIENT')) {
-                this.router.navigateByUrl('/creditForm');
+                this._router.navigateByUrl('/creditForm');
               } else {
-                this.router.navigateByUrl('/consultation');
+                this._router.navigateByUrl('/consultation');
               }*/
             },
             err => {
@@ -110,10 +92,6 @@ export class SignInComponent implements OnInit {
           this.isLoginFailed = true;
         }
       );
-
     }
-
-    //this._router.navigate(['/']);
->>>>>>> matchFront
   }
 }

@@ -11,14 +11,11 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
   imports: [FormsModule, RouterLink, ButtonComponent],
 })
 export class TwoStepsComponent implements OnInit {
-<<<<<<< HEAD
-  constructor() {}
+  // Pour le formulaire 2-step input
   public inputs = Array(6);
 
-  ngOnInit(): void {}
-}
-=======
- phoneNumber: string = '21612345678'; // Numéro sans '+'
+  // Pour le lien WhatsApp
+  phoneNumber: string = '21612345678'; // Remplace par ton numéro sans '+'
 
   get whatsappLink(): string {
     return `https://wa.me/${this.phoneNumber}`;
@@ -28,6 +25,3 @@ export class TwoStepsComponent implements OnInit {
 
   ngOnInit(): void {}
 }
-
-
->>>>>>> matchFront
