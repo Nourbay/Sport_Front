@@ -7,21 +7,12 @@ export class Menu {
       separator: false,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/chart-pie.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/chart-pie.svg',
->>>>>>> matchFront
           label: 'Dashboard',
           route: '/dashboard',
-         
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/lock-closed.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/lock-closed.svg',
->>>>>>> matchFront
           label: 'Auth',
           route: '/auth',
           children: [
@@ -32,26 +23,18 @@ export class Menu {
             { label: 'Two Steps', route: '/auth/two-steps' },
           ],
         },
-       
       ],
     },
-
 
     {
       group: 'Gestion users',
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/download.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/download.svg',
->>>>>>> matchFront
           label: 'users',
           route: '/download',
         },
-       
-        
       ],
     },
 
@@ -60,20 +43,12 @@ export class Menu {
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/cube.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/cube.svg',
->>>>>>> matchFront
           label: 'Catégories',
           route: '/categories',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/cube-transparent.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/cube-transparent.svg',
->>>>>>> matchFront
           label: 'Produits',
           route: '/produits',
         },
@@ -85,20 +60,12 @@ export class Menu {
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/shopping-cart.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/shopping-cart.svg',
->>>>>>> matchFront
           label: 'Panier',
           route: '/panier',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/clipboard-check.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/clipboard-check.svg',
->>>>>>> matchFront
           label: 'Commandes',
           route: '/commandes',
         },
@@ -110,11 +77,7 @@ export class Menu {
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/truck.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/truck.svg',
->>>>>>> matchFront
           label: 'Suivi Livraison',
           route: '/livraison',
         },
@@ -126,53 +89,34 @@ export class Menu {
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/chart-bar.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/chart-bar.svg',
->>>>>>> matchFront
           label: 'Ventes',
           route: '/stats-ventes',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/trending-up.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/trending-up.svg',
->>>>>>> matchFront
           label: 'Performance Produits',
           route: '/performances',
         },
       ],
     },
 
-   
     {
       group: 'Locaux et Evénements ',
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/cog.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/cog.svg',
->>>>>>> matchFront
           label: 'Locaux',
           route: '/local',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/bell.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/bell.svg',
->>>>>>> matchFront
           label: 'Evénements',
           route: '/events',
         },
-     
       ],
     },
- 
  
     {
       group: 'Équipe Match  ',
@@ -181,20 +125,11 @@ export class Menu {
         {
           icon: 'assets/icons/heroicons/outline/cog.svg',
           label: 'Equipe',
-<<<<<<< HEAD
-          route: '/local',
-=======
           route: '/dashboard/equipe',
->>>>>>> matchFront
         },
         {
           icon: 'assets/icons/heroicons/outline/bell.svg',
           label: 'Match',
-<<<<<<< HEAD
-          route: '/events',
-        },
-     
-=======
           route: '/dashboard/match',
         },
         {
@@ -217,7 +152,6 @@ export class Menu {
           label: 'SessionJeu',
           route: '/dashboard/sessionJeu',
         },
->>>>>>> matchFront
       ],
     },
 
@@ -226,54 +160,32 @@ export class Menu {
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/cog.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/cog.svg',
->>>>>>> matchFront
           label: 'Réservation des équipements ',
           route: '/local',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/bell.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/bell.svg',
->>>>>>> matchFront
           label: 'Gestion de l’inventaire ',
           route: '/events',
         },
-     
       ],
     },
-
-
-
-
 
     {
       group: ' Médical  ',
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/cog.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/cog.svg',
->>>>>>> matchFront
           label: 'Suivi médical des joueurs ',
           route: '/local',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/bell.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/bell.svg',
->>>>>>> matchFront
           label: 'Gestion des autorisations médicales  ',
           route: '/events',
         },
-     
       ],
     },
 
@@ -282,26 +194,16 @@ export class Menu {
       separator: true,
       items: [
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/cog.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/cog.svg',
->>>>>>> matchFront
           label: 'Blog',
           route: '/settings',
         },
         {
-<<<<<<< HEAD
-          icon: 'assets/icons/heroicons/outline/bell.svg',
-=======
           // icon: 'assets/icons/heroicons/outline/bell.svg',
->>>>>>> matchFront
           label: 'Comments',
           route: '/gift',
         },
-       
       ],
     },
-   
   ];
 }
