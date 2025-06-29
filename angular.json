@@ -31,6 +31,10 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
+=======
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+>>>>>>> matchFront
               "src/styles.scss"
             ],
             "scripts": [

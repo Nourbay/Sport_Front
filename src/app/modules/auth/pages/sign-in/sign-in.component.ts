@@ -4,6 +4,11 @@ import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
+<<<<<<< HEAD
+=======
+import { AuthService } from 'src/app/modules/dashboard/services/auth.service';
+import { TokenStorageService } from 'src/app/modules/dashboard/services/token-storage.service';
+>>>>>>> matchFront
 
 @Component({
   selector: 'app-sign-in',
@@ -16,8 +21,22 @@ export class SignInComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   passwordTextType!: boolean;
+<<<<<<< HEAD
 
   constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
+=======
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+
+  constructor(private readonly _formBuilder: FormBuilder,
+    private readonly _router: Router,
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService
+
+  ) { }
+>>>>>>> matchFront
 
   onClick() {
     console.log('Button clicked');
@@ -39,6 +58,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
+<<<<<<< HEAD
     this.submitted = true;
     const { email, password } = this.form.value;
 
@@ -48,5 +68,52 @@ export class SignInComponent implements OnInit {
     }
 
     this._router.navigate(['/']);
+=======
+    // stop here if form is invalid
+    if (this.form.invalid) {
+      console.log("form invalid");
+      return;
+    }
+
+    if (this.form.valid) {
+      // Implement your login logic here
+      console.log(this.form.value);
+      this.authService.login(this.form.value).subscribe(
+        data => {
+          this.tokenStorage.saveToken(data.token);
+          console.log(data.token);
+          this.tokenStorage.saveUser(data);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+
+          // 🔽 Appel de getUser après authentification
+          this.tokenStorage.getUser(data.token).subscribe(
+            user => {
+              console.log(user);
+              this.tokenStorage.saveUser(user); // mettre à jour avec les vraies données de l’API
+              this.roles = user.roles;
+              console.log("User from API:", user);
+
+              /*if (this.roles.includes('ROLE_CLIENT')) {
+                this.router.navigateByUrl('/creditForm');
+              } else {
+                this.router.navigateByUrl('/consultation');
+              }*/
+            },
+            err => {
+              console.error("Error retrieving user:", err);
+            }
+          );
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isLoginFailed = true;
+        }
+      );
+
+    }
+
+    //this._router.navigate(['/']);
+>>>>>>> matchFront
   }
 }

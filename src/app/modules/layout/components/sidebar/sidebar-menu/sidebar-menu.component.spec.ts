@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+<<<<<<< HEAD
 
 import { SidebarMenuComponent } from './sidebar-menu.component';
+=======
+import { SidebarMenuComponent } from './sidebar-menu.component';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';  // ✅ AJOUT
+>>>>>>> matchFront
 
 describe('SidebarMenuComponent', () => {
   let component: SidebarMenuComponent;
@@ -8,8 +15,18 @@ describe('SidebarMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+<<<<<<< HEAD
     imports: [SidebarMenuComponent],
 }).compileComponents();
+=======
+      imports: [
+        SidebarMenuComponent, 
+        AngularSvgIconModule.forRoot(),
+        HttpClientTestingModule,
+        RouterTestingModule     // ✅ Pour fournir ActivatedRoute, Router
+      ]
+    }).compileComponents();
+>>>>>>> matchFront
   });
 
   beforeEach(() => {

@@ -6,6 +6,10 @@ import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app/app-routing.module';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
+=======
+import { provideHttpClient } from '@angular/common/http';
+>>>>>>> matchFront
 
 if (environment.production) {
   enableProdMode();
@@ -16,9 +20,18 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
+<<<<<<< HEAD
   providers: [importProvidersFrom(BrowserModule, AppRoutingModule), provideAnimations()],
 }).catch((err) => console.error(err));
 
+=======
+  providers: [
+    importProvidersFrom(BrowserModule, AppRoutingModule),
+    provideAnimations(),
+    provideHttpClient(), // ✅ indispensable pour HttpClient
+  ],
+}).catch((err) => console.error(err));
+>>>>>>> matchFront
 function selfXSSWarning() {
   setTimeout(() => {
     console.log(
