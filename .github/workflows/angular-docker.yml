@@ -2,7 +2,8 @@ name: Angular CI with SonarCloud and Docker Deploy
 
 on:
   push:
-    branches: [ "prodFront" ]
+    branches:
+      - prodFront
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -84,13 +85,13 @@ jobs:
       - name: Install npm dependencies
         run: npm install --legacy-peer-deps
 
-      - name: SonarCloud analysis
-        uses: SonarSource/sonarqube-scan-action@v2.0.0
+      - uses: actions/checkout@v4
         with:
-          projectBaseDir: .
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
 
 
   docker_build_and_push:
